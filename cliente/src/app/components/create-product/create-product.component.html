@@ -4,23 +4,27 @@
       <div class="card">
         <div class="card-body text-center">
           <span class="title">CREATE PRODUCT</span>
-          <form class="mt-3">
+          <form class="mt-3" [formGroup]="productForm">
             <div class="mb-3">
-              <input type="text" class="form-control form-control-lg" placeholder="prduct">
+              <input type="text" formControlName="name" class="form-control form-control-lg" placeholder="name">
+              <div class="text-danger" 
+                *ngIf="productForm.get('name')?.hasError('required') && productForm.get('name')?.touched">
+                <span>El nombre es obligatorio</span>
+              </div>
             </div>
             <div class="mb-3">
-              <input type="text" class="form-control form-control-lg" placeholder="category">
+              <input type="text" formControlName="category" class="form-control form-control-lg" placeholder="category">
             </div>
             <div class="mb-3">
-              <input type="text" class="form-control form-control-lg" placeholder="localization">
+              <input type="text" formControlName="localization" class="form-control form-control-lg" placeholder="localization">
             </div>
             <div class="mb-3">
-              <input type="number" class="form-control form-control-lg" placeholder="price">
+              <input type="number" formControlName="prize" class="form-control form-control-lg" placeholder="prize">
             </div>
         </form>
         <div class="mb-3">
           <button routerLink="/" class="btn btn-secondary btn-lg float-start">BACK</button>
-          <button  class="btn btn-success btn-lg float-end">NEXT</button>
+          <button (click)="add()"  class="btn btn-success btn-lg float-end">NEXT</button>
         </div>
         </div>
       </div>

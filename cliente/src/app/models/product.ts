@@ -5,12 +5,12 @@ export class Product {
   name:string;
   category: string;
   localization: string;
-  price: number;
+  prize: number;
 
-  constructor(name:string, category:string,localization:string,price:number){
+  constructor(name:string, category:string,localization:string,prize:number){
     this.name= name;
     this.category= category;
     this.localization= localization;
-    this.price= price;
+    this.prize= prize;
   }
 }
