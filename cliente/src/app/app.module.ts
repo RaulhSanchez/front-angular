@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http'
+
 
 import { AppComponent } from './app.component';
 import { CreateProductComponent } from './components/create-product/create-product.component';
@@ -23,6 +25,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    HttpClientModule,
 
 
   ],

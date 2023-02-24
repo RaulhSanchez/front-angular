@@ -5,7 +5,7 @@
             <div class="card-body text-center">
               <span class="title">PRODUCT LIST</span>
               <button class="btn btn-success float-end" routerLink="/create-product">NEW</button>
-              <table class="table table-striped mt-4">
+              <table *ngIf="listPodcuts.length > 0" class="table table-striped mt-4">
                 <thead>
                   <tr>
                     <th scope="col">PRODUCT</th>
@@ -16,28 +16,19 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Coca Cola</td>
-                    <td>Bebida</td>
-                    <td>Madrid</td>
-                    <td>2</td>
+                  <tr *ngFor="let produc of listPodcuts">
+                    <td>{{produc.name}}</td>
+                    <td>{{produc.category}}</td>
+                    <td>{{produc.localization}}</td>
+                    <td>{{produc.prize}}</td>
                     <td>
                       <i class="fa fa-solid fa-pen-to-square text-primary"></i>
-                      <i class="fa fa-solid fa-trash text-danger"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>Nestea</th>
-                    <td>Bebida</td>
-                    <td>Barcelona</td>
-                    <td>3</td>
-                    <td>
-                      <i class="fa fa-solid fa-pen-to-square text-primary"></i>
-                      <i class="fa fa-solid fa-trash text-danger"></i>
+                      <i (click)="deleteOne(produc._id)" class="fa fa-solid fa-trash text-danger"></i>
                     </td>
                   </tr>
                 </tbody>
               </table>
+              <h5 *ngIf="listPodcuts.length == 0" style="text-align: start; margin-top: 10px;">no ha nada que mostrar</h5>
             </div>
           </div>
       </div>
