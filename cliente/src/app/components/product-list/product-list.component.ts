@@ -10,8 +10,9 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent implements OnInit {
   listPodcuts:Product[] = []
-  constructor( private _productService: ProductService,
-                private toastr: ToastrService){
+  constructor( 
+              private _productService: ProductService,
+              private toastr: ToastrService){
   }
 
   ngOnInit(): void {

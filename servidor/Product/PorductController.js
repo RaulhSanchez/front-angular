@@ -41,7 +41,22 @@ module.exports.Delete = async (req,res) => {
     } catch (error) {
         console.log(error)
     }    
+}
 
+module.exports.UpdateProd= async (req,res) =>{
+    try {
+        const{name,category,localization,prize} = req.body
+        let product = await ModelProduct.findById(req.params.id)
+        if(!product){res.status(400).json({msg:'no existe el producto'})}
+        product.name= name
+        product.category= category
+        product.localization= localization
+        product.prize= prize
+        await ModelProduct.findByIdAndUpdate({_id:req.params.id},product,{new:true});
+        res.json(product)
+    } catch (error) {
+        
+    }
 }
 
 function errorHandler(err) {
